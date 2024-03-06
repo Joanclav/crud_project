@@ -7,9 +7,16 @@ async function bootstrap() {
   app.enableCors();
 
   const options = new DocumentBuilder()
-    .setTitle('CRUD PROJECT')
-    .setDescription('CRUD PROJECT description')
+    .setTitle('CRUD PROJECT for ideal control')
+    .setDescription(
+      'Development of a CRUD (Create, Read, Update, Delete) project with a RESTful API hosted at http://localhost:3000, documented using Swagger for enhanced endpoint interaction and understanding.',
+    )
     .setVersion('1.0')
+    //tags
+    .addTag('Create', 'Endpoints for creating records')
+    .addTag('Read', 'Endpoints for reading records')
+    .addTag('Update', 'Endpoints for updating records')
+    .addTag('Delete', 'Endpoints for deleting records')
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
