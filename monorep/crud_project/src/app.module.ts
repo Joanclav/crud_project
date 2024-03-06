@@ -8,7 +8,7 @@ import { CrudController } from './controller/crud.controller';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://admin:bHXMvvqUrPoms88P@cluster0.ghxwgc7.mongodb.net/'),
+    MongooseModule.forRoot('insertar servidor'),
     MongooseModule.forFeature([{ name: 'Crud', schema: CrudSchema }]),
   ],
   controllers: [CrudController],
