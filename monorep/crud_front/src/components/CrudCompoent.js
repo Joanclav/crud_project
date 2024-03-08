@@ -15,7 +15,8 @@ const CrudComponent = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/crud');
+      const apiUrl = process.env.REACT_APP_API_URL;
+      const response = await axios.get(apiUrl);
       setData(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -37,8 +38,8 @@ const CrudComponent = () => {
         return;
       }
 
-      await axios.post('http://localhost:3000/crud', newItem);
-      setNewItem({ text: '', date: '', status: false });
+      const apiUrl = process.env.REACT_APP_API_URL;
+      await axios.post(apiUrl, newItem);
       fetchData();
       setError({ text: '', date: '' });
       setShowForm(false);
