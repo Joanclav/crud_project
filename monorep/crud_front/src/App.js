@@ -1,5 +1,5 @@
 import React from 'react';
-import CrudComponent from './components/CrudCompoents';
+import CrudComponent from './components/CrudCompoent';
 
 function App() {
   return (
