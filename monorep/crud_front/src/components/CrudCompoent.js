@@ -49,8 +49,17 @@ const CrudComponent = () => {
     }
   };
 
+  const handleDelete = async (objectId) => {
+    try {
+      const apiUrl = `${process.env.REACT_APP_API_URL}/${objectId}`;
+      await axios.delete(apiUrl);
+      fetchData();
+    } catch (error) {
+      console.error('Error deleting item:', error);
+    }
+  };
   
-  return (
+   return (
     <div className="container mt-4">
       <Banner />
       <div className="row">
@@ -72,7 +81,7 @@ const CrudComponent = () => {
           )}
         </div>
         <div className="col-md-6">
-          {data.length > 0 && !showForm && <Table data={data} />}
+          {data.length > 0 && !showForm && <Table data={data} handleDelete={handleDelete} />}
         </div>
       </div>
     </div>

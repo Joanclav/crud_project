@@ -27,7 +27,7 @@ const Formulario = ({ newItem, error, handleCreate, setNewItem, setError }) => {
           </label>
           <input
             type="date"
-            className={`form-control ${error.date && 'is-invalid'}`}
+            className={`form-control ${error.date && '----'}`}
             id="date"
             value={newItem.date}
             onChange={(e) => {
