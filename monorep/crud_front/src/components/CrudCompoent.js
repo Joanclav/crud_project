@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Formulario from './form/form';
 import Table from './table/table';
+import Banner from './banner/banner';
 
 const CrudComponent = () => {
   const [data, setData] = useState([]);
@@ -51,6 +52,7 @@ const CrudComponent = () => {
   
   return (
     <div className="container mt-4">
+      <Banner />
       <div className="row">
         <div className="col-md-6">
           {showForm && (
