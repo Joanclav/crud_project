@@ -99,7 +99,7 @@ const CrudComponent = () => {
               </div>
             )}
           </div>
-          <div className="col-md-6 mx-auto">
+          <div>
             {!showForm && (
               <div className="d-flex justify-content-end mt-2">
                 <button className="btn btn-primary" onClick={() => setShowForm(true)}>
