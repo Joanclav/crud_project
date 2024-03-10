@@ -58,15 +58,15 @@ const CrudComponent = () => {
   };
 
   const handleEdit = (item) => {
-    setEditingItemId(item._id); // Establecer el ID del elemento que se está editando
-    setNewItem(item); // Poblar el Form con los datos del elemento
-    setShowForm(true); // Mostrar el Form de nuevo
+    setEditingItemId(item._id); 
+    setNewItem(item); 
+    setShowForm(true); 
   };
 
   const handleCancelEdit = () => {
-    setEditingItemId(null); // Restablecer el ID de edición
-    setNewItem({ text: '', date: '', status: false }); // Limpiar el Form
-    setShowForm(false); // Ocultar el Form
+    setEditingItemId(null); 
+    setNewItem({ text: '', date: '', status: false }); 
+    setShowForm(false); 
   };
 
   const handleDelete = async (objectId) => {
@@ -83,9 +83,9 @@ const CrudComponent = () => {
     <div>
       <Banner />
       <div className="container-fluid mt-4">
+      <div class="abs-center">
         <div className="row">
           <div className="col-md-6 mx-auto">
-            {/* Mostrar el formulario si showForm es true */}
             {showForm && (
               <div>
                 <Form
@@ -100,7 +100,6 @@ const CrudComponent = () => {
             )}
           </div>
           <div className="col-md-6 mx-auto">
-            {/* Mostrar el botón para crear un nuevo ítem en la esquina superior derecha */}
             {!showForm && (
               <div className="d-flex justify-content-end mt-2">
                 <button className="btn btn-primary" onClick={() => setShowForm(true)}>
@@ -109,7 +108,6 @@ const CrudComponent = () => {
               </div>
             )}
 
-            {/* Mostrar la tabla centrada si hay datos y no se está editando un ítem */}
             {data.length > 0 && !showForm && (
               <div className="mt-3">
                 <Table data={data} handleDelete={handleDelete} handleEdit={handleEdit} />
@@ -118,6 +116,7 @@ const CrudComponent = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
