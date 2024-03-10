@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Formulario = ({ newItem, error, handleCreate, setNewItem, setError }) => {
+const Form = ({ newItem, error, handleCreate, setNewItem, setError, handleCancelEdit }) => {
   return (
     <div>
       <h2>Añade un nuevo ítem a la tabla</h2>
@@ -50,11 +50,16 @@ const Formulario = ({ newItem, error, handleCreate, setNewItem, setError }) => {
           </label>
         </div>
         <button type="button" className="btn btn-primary" onClick={handleCreate}>
-          Create
+          {newItem._id ? 'Actualizar' : 'Crear'}
         </button>
+        {newItem._id && (
+          <button type="button" className="btn btn-secondary ml-2" onClick={handleCancelEdit}>
+            Cancelar Edición
+          </button>
+        )}
       </form>
     </div>
   );
 };
 
-export default Formulario;
+export default Form;
