@@ -73,7 +73,6 @@ const Table = ({ data, handleDelete, handleEdit }) => {
         <tbody>
           {sortedData.map((item) => (
             <tr key={item._id} className="table-row">
-              {/* Cambia el manejador de clics en la fila */}
               <td>{item.text}</td>
               <td>{moment(item.date).format('MM/DD/YYYY')}</td>
               <td>{item.status ? 'Aprobado' : 'No Aprobado'}</td>
