@@ -3,6 +3,9 @@ import axios from 'axios';
 import Form from './form/form';
 import Table from './table/table';
 import Banner from './banner/banner';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+
 
 const CrudComponent = () => {
   const [data, setData] = useState([]);
@@ -44,7 +47,7 @@ const CrudComponent = () => {
 
       if (editingItemId) {
         await axios.put(`${apiUrl}/${editingItemId}`, newItem);
-        setEditingItemId(null); 
+        setEditingItemId(null);
       } else {
         await axios.post(apiUrl, newItem);
       }
@@ -58,15 +61,15 @@ const CrudComponent = () => {
   };
 
   const handleEdit = (item) => {
-    setEditingItemId(item._id); 
-    setNewItem(item); 
-    setShowForm(true); 
+    setEditingItemId(item._id);
+    setNewItem(item);
+    setShowForm(true);
   };
 
   const handleCancelEdit = () => {
-    setEditingItemId(null); 
-    setNewItem({ text: '', date: '', status: false }); 
-    setShowForm(false); 
+    setEditingItemId(null);
+    setNewItem({ text: '', date: '', status: false });
+    setShowForm(false);
   };
 
   const handleDelete = async (objectId) => {
@@ -82,41 +85,43 @@ const CrudComponent = () => {
   return (
     <div>
       <Banner />
-      <div className="container-fluid mt-4">
-      <div class="abs-center">
-        <div className="row">
-          <div className="col-md-6 mx-auto">
-            {showForm && (
+      <div className="container-fluid mt-4 bg-dark p-4 rounded">
+        <div className="table-container bg-dark p-4 rounded">
+          <div className="abs-center">
+            <div className="row">
+              <div className="col-md-6 mx-auto">
+                {showForm && (
+                  <div>
+                    <Form
+                      newItem={newItem}
+                      error={error}
+                      handleCreate={handleCreate}
+                      setNewItem={setNewItem}
+                      setError={setError}
+                      handleCancelEdit={handleCancelEdit}
+                    />
+                  </div>
+                )}
+              </div>
               <div>
-                <Form
-                  newItem={newItem}
-                  error={error}
-                  handleCreate={handleCreate}
-                  setNewItem={setNewItem}
-                  setError={setError}
-                  handleCancelEdit={handleCancelEdit}
-                />
-              </div>
-            )}
-          </div>
-          <div>
-            {!showForm && (
-              <div className="d-flex justify-content-end mt-2">
-                <button className="btn btn-primary" onClick={() => setShowForm(true)}>
-                  Crear Nuevo Ítem
-                </button>
-              </div>
-            )}
+                {!showForm && (
+                  <div>
+                    <button className="btn btn-primary" onClick={() => setShowForm(true)}>
+                      <FontAwesomeIcon icon={faPlus} />Crear Nuevo Ítem
+                    </button>
+                  </div>
+                )}
 
-            {data.length > 0 && !showForm && (
-              <div className="mt-3">
-                <Table data={data} handleDelete={handleDelete} handleEdit={handleEdit} />
+                {data.length > 0 && !showForm && (
+                  <div className="mt-3">
+                    <Table data={data} handleDelete={handleDelete} handleEdit={handleEdit} />
+                  </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

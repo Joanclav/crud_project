@@ -1,0 +1,32 @@
+.table-custom .table-row {
+    font-size: 30px; 
+    line-height: 60px; 
+  }
+
+  .sort-icon {
+    color: #ffffff;
+  }
+  
+  .sort-icon.active {
+    color: black; 
+  }
+
+  .table th {
+    background-color: #6e6969; 
+    color: #fff; 
+    cursor: pointer;
+  }
+  
+  .table th.active {
+    background-color: #7b88cc;
+  }
+  table.table-custom tbody tr.table-row:hover {
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+  }
+
+  .rounded-table {
+    border-radius: 1000px; /* Puedes ajustar el valor según tus preferencias */
+  }
